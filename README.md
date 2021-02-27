@@ -1,70 +1,144 @@
-# Getting Started with Create React App
+## Demo
+You can also view the web version of the at https://aashishvanand.me/FlickWeb/
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Running your project locally
+# Getting your mongoDB instance setup
+Visit https://www.mongodb.com/cloud/atlas and create an account. Follow https://docs.atlas.mongodb.com/getting-started/ if required.
+You need a connection string from the db instance
+mongodb+srv://[username:password@]@host/db?retryWrites=true&w=majority
 
-## Available Scripts
+Make sure you add this under the name DB in .env under /flickAPI
 
-In the project directory, you can run:
 
-### `npm start`
+# Getting API key from tmdb.org
+Visit https://www.themoviedb.org/settings/api and create an account and get the api key.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Make sure you add this under the name tmdbAPIKey in .env under /flickAPI
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
 
-### `npm test`
+# Setting jwtSecret
+in order to validate user session we use JWT token. Learn more about jwt at https://jwt.io/
+key can be any alphanumeric combination
+Make sure you add this under the name jwtSecret in .env under /flickAPI
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+# Running Middleware
+Middleware can be found in https://github.com/aashishvanand/FlickWebBackend. Navigate in your IDE to the folder and run the command. Also make sure there is no other service running in port 3001. 
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+npm run dev
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+This should start up the Middleware on port 3001
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+# API Documentation
+You can check the Postman Collection at 
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+# Adding Data to Database
+Once the Middleware is up you can POST movie object /v1/movie/movie. You can post 1 movie at a time. You can also bulk upload the data using Mongodb commandLine
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+sample
+        { 
+            "_id": "tmdbID",
+            "title": "movieName",
+            "synopsis": "sampleSynopsis",
+            "genre": "sampleGenre",
+            "productionYear": "sampleYear",
+            "poster": "png/jpg poster"
+        }
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+data
+        {
+            "_id": "297802",
+            "title": "Aquaman",
+            "synopsis": "Amphibious superhero Arthur Curry learns what it means to be Aquaman when he must stop the king of Atlantis from waging war against the surface world.",
+            "genre": "Adventure",
+            "productionYear": "2018",
+            "poster": "https://image.tmdb.org/t/p/w500/9QusGjxcYvfPD1THg6oW3RLeNn7.jpg"
+        }
+        {
+            "_id": "293660",
+            "title": "Deadpool",
+            "synopsis": "A wisecracking mercenary gets experimented on and becomes immortal but ugly, and sets out to track down the man who ruined his looks.",
+            "genre": "Action",
+            "productionYear": "2016",
+            "poster": "https://image.tmdb.org/t/p/w500/en971MEXui9diirXlogOrPKmsEn.jpg"
+        }
+        {
+            "_id": "158852",
+            "title": "Tomorrowland",
+            "synopsis": "Bound by a shared destiny, a teen bursting with scientific curiosity and a former boy-genius inventor embark on a mission to unearth the secrets of a place somewhere in time and space that exists in their collective memory.",
+            "genre": "Action",
+            "productionYear": "2015",
+            "poster": "https://image.tmdb.org/t/p/w500/8Nn6rRClhREixqsHJ3eAnZNVfJl.jpg"
+        }
+        {
+            "_id": "12155",
+            "title": "Alice in Wonderland",
+            "synopsis": "Nineteen-year-old Alice returns to the magical world from her childhood adventure, where she reunites with her old friends and learns of her true destiny: to end the Red Queen's reign of terror.",
+            "genre": "Comedy",
+            "productionYear": "2010",
+            "poster": "https://image.tmdb.org/t/p/w500/20pkC7yJdCV4J1IMKfsCT9QU7zV.jpg"
+        }
+        {
+            "_id": "246655",
+            "title": "X-Men: Apocalypse",
+            "synopsis": "With mutants Apocalypse and Magneto intent on mankind's destruction, Professor X and his team of young X-Men must battle for the future of humanity.",
+            "genre": "Fantasy",
+            "productionYear": "2016",
+            "poster": "https://image.tmdb.org/t/p/w500/2ex2beZ4ssMeOduLD0ILzXKCiep.jpg"
+        }
+        {
+            "_id": "353486",
+            "title": "Jumanji: Welcome to the Jungle",
+            "synopsis": "Four high school students get sucked into the jungle setting of a video game, where they embark on a quest as their comically mismatched adult avatars.",
+            "genre": "Fantasy",
+            "productionYear": "2017",
+            "poster": "https://image.tmdb.org/t/p/w500/zJDMuXQDraHjtF53wikmyBQIcYe.jpg"
+        }
+        {
+            "_id": "166428",
+            "title": "How to Train Your Dragon: The Hidden World",
+            "synopsis": "After meeting an enchanted creature, Hiccup and Toothless set out to find a legendary dragon paradise before evil hunter Grimmel finds them first.",
+            "genre": "Children",
+            "productionYear": "2019",
+            "poster": "https://image.tmdb.org/t/p/w500/lFwykSz3Ykj1Q3JXJURnGUTNf1o.jpg"
+        }
+        {
+            "_id": "454640",
+            "title": "The Angry Birds Movie 2",
+            "synopsis": "Enemies turn into frenemies when the Pigs call for a truce with the Birds to unite against a formidable new foe that’s threatening all of their homes.",
+            "genre": "Children",
+            "productionYear": "2019",
+            "poster": "https://image.tmdb.org/t/p/w500/k7sE3loFwuU2mqf7FbZBeE3rjBa.jpg"
+        }
+        {
+            "_id": "20352",
+            "title": "Despicable Me",
+            "synopsis": "Villainous Gru hatches a plan to steal the moon from the sky. But he has a tough time staying on task after three orphans land in his care.",
+            "genre": "Children",
+            "productionYear": "2010",
+            "poster": "https://image.tmdb.org/t/p/w500/3qgOKlTmkvq27zDVzmBOEG4VcjA.jpg"
+        }
+        {
+            "_id": "315635",
+            "title": "Spider-Man: Homecoming",
+            "synopsis": "Peter Parker returns to routine life as a high schooler until the Vulture's arrival gives him the chance to prove himself as a web-slinging superhero.",
+            "genre": "Adventure",
+            "productionYear": "2017",
+            "poster": "https://image.tmdb.org/t/p/w500/vc8bCGjdVp0UbMNLzHnHSLRbBWQ.jpg"
+        }
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+You can login to cli using your mongo db connection string 
+mongo "mongodb+srv://url/dbname" --username username --password password
 
-## Learn More
+You need insert movies using the following command
+use dbname
+db.movies.insertMany([{movie1},{movie2}....{movieN}])
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+# Running Frontend
+Frontend can be found in https://github.com/aashishvanand/FlickWeb. Navigate in your IDE to the folder and run the command. Also make sure there is no other service running in port 3000 and point the src/context/APIContext.js to backend for example (http://localhost:3001/.....)
 
-### Code Splitting
+npm start
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+This should start the react front end app on port 3000. You can now register as a new user and view the app
