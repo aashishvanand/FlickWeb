@@ -1,40 +1,40 @@
-## Demo
-You can also view the web version of the at https://aashishvanand.me/FlickWeb/
+# Demo
+You can also view the web version of the app at https://aashishvanand.me/FlickWeb/
 
-## Running your project locally
-# Getting your mongoDB instance setup
+# Running your project locally
+## Getting your MongoDB instance setup
 Visit https://www.mongodb.com/cloud/atlas and create an account. Follow https://docs.atlas.mongodb.com/getting-started/ if required.
 You need a connection string from the db instance
 mongodb+srv://[username:password@]@host/db?retryWrites=true&w=majority
 
-Make sure you add this under the name DB in .env under /flickAPI
+Make sure you add this under the name DB in .env under https://github.com/aashishvanand/FlickWebBackend
 
 
-# Getting API key from tmdb.org
-Visit https://www.themoviedb.org/settings/api and create an account and get the api key.
+## Getting API key from tmdb.org
+Visit https://www.themoviedb.org/settings/api and create an account and get the API key.
 
-Make sure you add this under the name tmdbAPIKey in .env under /flickAPI
-
-
-# Setting jwtSecret
-in order to validate user session we use JWT token. Learn more about jwt at https://jwt.io/
-key can be any alphanumeric combination
-Make sure you add this under the name jwtSecret in .env under /flickAPI
+Make sure you add this under the name tmdbAPIKey in .env under https://github.com/aashishvanand/FlickWebBackend
 
 
-# Running Middleware
-Middleware can be found in https://github.com/aashishvanand/FlickWebBackend. Navigate in your IDE to the folder and run the command. Also make sure there is no other service running in port 3001. 
+## Setting jwtSecret
+to validate user session we use the JWT token. Learn more about jwt at https://jwt.io/
+a key can be any alphanumeric combination
+Make sure you add this under the name jwtSecret in .env under https://github.com/aashishvanand/FlickWebBackend
+
+
+## Running Middleware
+Middleware can be found in https://github.com/aashishvanand/FlickWebBackend. Navigate in your IDE to the folder and run the command. Also, make sure there is no other service running in port 3001. 
 
 npm run dev
 
 This should start up the Middleware on port 3001
 
 
-# API Documentation
-You can check the Postman Collection at 
+## API Documentation
+You can check the Postman Collection at [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/8059f60c0fc4a069dabd)
 
-# Adding Data to Database
-Once the Middleware is up you can POST movie object /v1/movie/movie. You can post 1 movie at a time. You can also bulk upload the data using Mongodb commandLine
+## Adding Data to Database
+Once the Middleware is up you can POST movie object /v1/movie/movie. You can post 1 movie at a time. You can also bulk upload the data using MongoDB commandLine
 
 sample
         { 
@@ -136,9 +136,9 @@ use dbname
 db.movies.insertMany([{movie1},{movie2}....{movieN}])
 
 
-# Running Frontend
-Frontend can be found in https://github.com/aashishvanand/FlickWeb. Navigate in your IDE to the folder and run the command. Also make sure there is no other service running in port 3000 and point the src/context/APIContext.js to backend for example (http://localhost:3001/.....)
+## Running Frontend
+The frontend can be found in https://github.com/aashishvanand/FlickWeb. Navigate in your IDE to the folder and run the command. Also, make sure there is no other service running in port 3000 and point the src/context/APIContext.js to the backend for example (http://localhost:3001/.....)
 
 npm start
 
-This should start the react front end app on port 3000. You can now register as a new user and view the app
+This should start the react front-end app on port 3000. You can now register as a new user and view the app
