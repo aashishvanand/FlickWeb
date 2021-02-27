@@ -12,7 +12,7 @@ export default makeStyles(theme => ({
     left: 0,
   },
   logotypeContainer: {
-    backgroundImage: "url(../../images/loginBg.jpg)",
+    backgroundImage: "url(https://i.imgur.com/jLvk3Pt.jpg)",
     backgroundRepeat: "no-repeat",
     filter: "brightness(50%)",
     width: "70%",

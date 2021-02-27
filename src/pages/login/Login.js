@@ -10,7 +10,7 @@ import {
   Fade,
 } from "@material-ui/core";
 import { withRouter } from "react-router-dom";
-import logo from "./flickLogo.png";
+import logo from "../../images/flickLogo.png";
 import useStyles from "./styles";
 import {
   useUserDispatch,
