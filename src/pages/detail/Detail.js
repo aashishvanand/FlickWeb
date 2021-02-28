@@ -9,6 +9,7 @@ import APIContext from "../../context/APIContext";
 import CardMedia from '@material-ui/core/CardMedia';
 import ReactPlayer from 'react-player'
 import { useHistory } from "react-router-dom";
+import NumberFormat from 'react-number-format';
 
 export default function ChangePasswordDetail() {
     var classes = useStyles();
@@ -99,7 +100,8 @@ export default function ChangePasswordDetail() {
                         title="Revenue"
                         upperTitle>
                         <Typography variant="h3" className={classes.text}>
-                            {"$" + revenue}
+                        <NumberFormat value={revenue} displayType={'text'} thousandSeparator={true} prefix={'$'} />
+                            {/* {"$" + revenue} */}
                         </Typography>
                     </Widget>
                 </Grid>
@@ -108,7 +110,7 @@ export default function ChangePasswordDetail() {
                         title="Budget"
                         upperTitle>
                         <Typography variant="h3" className={classes.text}>
-                            {"$" + budget}
+                        <NumberFormat value={budget} displayType={'text'} thousandSeparator={true} prefix={'$'} />
                         </Typography>
                     </Widget>
                 </Grid>
